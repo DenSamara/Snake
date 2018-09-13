@@ -18,6 +18,11 @@ namespace Snake
             this.sym = ch;
         }
 
+        public Point() : this(0, 0, '*')
+        {
+
+        }
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
