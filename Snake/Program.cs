@@ -9,19 +9,15 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Draw(1, 3, '*');
+            Point p = new Point(3, 5, '*');
 
-            Draw(2, 5, '=');
+            p.Draw();
+
+            Point p1 = new Point(10, 7, '=');
+            p1.Draw();
 
             Console.ReadLine();
         }
-
-        private static void Draw(int x, int y, char sym)
-        {
-            Console.SetCursorPosition(x, y);
-            Console.Write(sym);
-        }
-
 
     }
 }
