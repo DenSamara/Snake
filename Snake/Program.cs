@@ -9,7 +9,7 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Point p = new Point(3, 5, '*');
+            Point p = new Point();
 
             p.Draw();
 
