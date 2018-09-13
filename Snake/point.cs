@@ -18,9 +18,22 @@ namespace Snake
             this.sym = ch;
         }
 
-        public Point() : this(0, 0, '*')
+        public Point()
+            : this(0, 0, '*')
         {
 
+        }
+
+        public int X
+        {
+            set { x = value; }
+            get { return x; }
+        }
+
+        public int Y
+        {
+            set { y = value; }
+            get { return y; }
         }
 
         public void Draw()
