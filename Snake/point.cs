@@ -25,6 +25,12 @@ namespace Snake
 
         }
 
+        public Point(Point point)
+            : this(point.x, point.y, point.sym)
+        {
+
+        }
+
         public int X
         {
             set { x = value; }
@@ -35,6 +41,12 @@ namespace Snake
         {
             set { y = value; }
             get { return y; }
+        }
+
+        public char Sym
+        {
+            set { sym = value; }
+            get { return sym; }
         }
 
         public void Draw()
@@ -49,7 +61,33 @@ namespace Snake
                 string msg = String.Format("x = {0}, y = {1}", x, y);
                 Debug.WriteLine(msg);
             }
-            
+        }
+
+        /// <summary>
+        /// Двигаем точку в нужном направлении.
+        /// TODO Проверка выхода за границы?
+        /// </summary>
+        /// <param name="delta"></param>
+        /// <param name="direction"></param>
+        public void Move(int delta, Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.Left:
+                    x -= delta;
+                    break;
+                case Direction.Right:
+                    x += delta;
+                    break;
+                case Direction.Up:
+                    y -= delta;
+                    break;
+                case Direction.Down:
+                    y += delta;
+                    break;
+                default:
+                    break;
+            }
         }
 
         public override string ToString()

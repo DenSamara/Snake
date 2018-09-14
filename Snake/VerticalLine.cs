@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Snake
 {
-    class VerticalLine : Line
+    class VerticalLine : Figure
     {
         public VerticalLine(int x, int y, int length, char sym)
         {
