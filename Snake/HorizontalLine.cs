@@ -10,7 +10,7 @@ namespace Snake
         public HorizontalLine(int x, int y, int length, char sym)
         {
             this.sym = sym;
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < length - 2; i++)
             {
                 pList.Add(new Point(x+i, y, sym));
             }

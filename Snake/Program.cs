@@ -7,9 +7,12 @@ namespace Snake
 {
     class Program
     {
+        static int Y_MAX = 30;
+        static int X_MAX = 120;
+
         static void Main(string[] args)
         {
-            //Point p = new Point();
+            Point p = new Point(10, 5, '*');
 
             //Point start = new Point(10, 11, '*');
             //Point end = new Point(20, 22, '*');
@@ -17,11 +20,23 @@ namespace Snake
             //Line line = new Line(start, end);
             //line.Draw();
 
-            HorizontalLine hLine = new HorizontalLine(10, 10, 10, '-');
-            hLine.Draw();
+            Console.SetBufferSize(X_MAX, Y_MAX);
 
-            VerticalLine vLine = new VerticalLine(10, 10, 10, '|');
-            vLine.Draw();
+            //Верх
+            HorizontalLine upFrame = new HorizontalLine(1, 1, X_MAX, '*');
+            //Низ
+            HorizontalLine downFrame = new HorizontalLine(1, Y_MAX-1, X_MAX, '*');
+            //Лево
+            VerticalLine leftFrame = new VerticalLine(1, 1, Y_MAX, '*');
+            //Право
+            VerticalLine rightFrame = new VerticalLine(X_MAX-1, 1, Y_MAX, '*');
+
+            upFrame.Draw();
+            downFrame.Draw();
+            leftFrame.Draw();
+            rightFrame.Draw();
+
+            p.Draw();
 
             Console.ReadLine();
         }

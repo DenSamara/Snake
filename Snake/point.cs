@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 
 namespace Snake
 {
@@ -38,8 +39,17 @@ namespace Snake
 
         public void Draw()
         {
-            Console.SetCursorPosition(x, y);
-            Console.Write(sym);
+            try
+            {
+                Console.SetCursorPosition(x, y);
+                Console.Write(sym);
+            }
+            catch (Exception)
+            {
+                string msg = String.Format("x = {0}, y = {1}", x, y);
+                Debug.WriteLine(msg);
+            }
+            
         }
 
         public override string ToString()
