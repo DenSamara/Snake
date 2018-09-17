@@ -90,6 +90,12 @@ namespace Snake
             }
         }
 
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
+
         public override string ToString()
         {
             return string.Format("x = {0}, y = {1}, char = {2}", x, y, sym);
