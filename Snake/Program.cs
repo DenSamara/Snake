@@ -27,6 +27,10 @@ namespace Snake
             Snake snake = new Snake(start, 3, (Direction)rand.Next(3));
             snake.Draw();
 
+            FoodCreator creator = new FoodCreator(X_MAX, Y_MAX, '$');
+            Point food = creator.CreateFood();
+            food.Draw();
+
             while (true)
             {
                 if (Console.KeyAvailable)
