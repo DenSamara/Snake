@@ -18,38 +18,35 @@ namespace Snake
 
             DrawFrame();
 
-            int centerX = (int)(X_MAX/2);
-            int centerY = (int)(Y_MAX/2);
-            Point start = new Point(centerX, centerY, '+');
+            VerticalLine vl = new VerticalLine( 0, 10, 5, '%' );
+			Draw( vl );
 
-            Random rand = new Random();
+			Point p = new Point( 4, 5, '*' );
+			Figure fSnake = new Snake( p, 4, Direction.Right );
+			Draw( fSnake );
+			Snake snake = (Snake) fSnake;
 
-            Snake snake = new Snake(start, 3, (Direction)rand.Next(3));
-            snake.Draw();
+			HorizontalLine hl = new HorizontalLine( 0, 5, 6, '&' );
 
-            FoodCreator creator = new FoodCreator(X_MAX, Y_MAX, '$');
-            Point food = creator.CreateFood();
-            food.Draw();
+			List<Figure> figures = new List<Figure>();
+			figures.Add( fSnake );
+			figures.Add( vl );
+			figures.Add( hl );
 
-            while (true)
-            {
-                if (snake.IsSnakeEat(food))
-                {
-                    food = creator.CreateFood();
-                    food.Draw();
-                }
-                if (Console.KeyAvailable)
-                {
-                    snake.HandleKey(Console.ReadKey());
-                }
-                snake.Move();
-                snake.Draw();
-                Thread.Sleep(100);
-            }
+			foreach(var f in figures)
+			{
+				f.Draw();
+			}
+
+            Console.ReadLine();
+		}
+
+		static void Draw( Figure figure )
+		{
+			figure.Draw();
+		}
 
             
-        }
-
         private static void DrawFrame()
         {
             //Верх
