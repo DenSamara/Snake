@@ -96,6 +96,11 @@ namespace Snake
             Draw();
         }
 
+        public bool isHit(Point point)
+        {
+            return x == point.x && y == point.y;
+        }
+
         public override string ToString()
         {
             return string.Format("x = {0}, y = {1}, char = {2}", x, y, sym);

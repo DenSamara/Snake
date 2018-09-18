@@ -33,6 +33,11 @@ namespace Snake
 
             while (true)
             {
+                if (snake.IsSnakeEat(food))
+                {
+                    food = creator.CreateFood();
+                    food.Draw();
+                }
                 if (Console.KeyAvailable)
                 {
                     snake.HandleKey(Console.ReadKey());

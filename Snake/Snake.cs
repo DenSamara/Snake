@@ -48,8 +48,8 @@ namespace Snake
 
         public Point GetNextPoint()
         {
-            Point head = pList.Last();
-            Point nextPoint = new Point(head);
+            Point tale = pList.Last();
+            Point nextPoint = new Point(tale);
             nextPoint.Move(1, direction);
             return nextPoint;
         }
@@ -73,6 +73,20 @@ namespace Snake
                 default:
                     break;
             }
+        }
+
+        public bool IsSnakeEat(Point food)
+        {
+            Point tale = GetNextPoint();
+
+            if (tale.isHit(food))
+            {
+                food.Sym = tale.Sym;
+                pList.Add(food);
+                return true;
+            }
+            else
+                return false;
         }
     }
 }
