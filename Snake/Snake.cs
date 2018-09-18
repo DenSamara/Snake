@@ -17,7 +17,7 @@ namespace Snake
             //Добавляем голову. Все остальные будут выглядеть по-другому
             pList.Add(headPosition);
 
-            for (int i = 1; i < length; i++ )
+            for (int i = 1; i < length; i++)
             {
                 Point newPoint = new Point(headPosition);
                 newPoint.Move(i, moveDirection);
@@ -40,12 +40,39 @@ namespace Snake
             head.Draw();
         }
 
+        public Direction SetDirection
+        {
+            set { direction = value; }
+            get { return direction; }
+        }
+
         public Point GetNextPoint()
         {
             Point head = pList.Last();
             Point nextPoint = new Point(head);
             nextPoint.Move(1, direction);
             return nextPoint;
+        }
+
+        public void HandleKey(ConsoleKeyInfo key)
+        {
+            switch (key.Key)
+            {
+                case ConsoleKey.RightArrow:
+                    direction = Direction.Right;
+                    break;
+                case ConsoleKey.LeftArrow:
+                    direction = Direction.Left;
+                    break;
+                case ConsoleKey.UpArrow:
+                    direction = Direction.Up;
+                    break;
+                case ConsoleKey.DownArrow:
+                    direction = Direction.Down;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

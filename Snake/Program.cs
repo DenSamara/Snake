@@ -27,30 +27,18 @@ namespace Snake
             Snake snake = new Snake(start, 3, (Direction)rand.Next(3));
             snake.Draw();
 
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    snake.HandleKey(Console.ReadKey());
+                }
+                snake.Move();
+                snake.Draw();
+                Thread.Sleep(100);
+            }
 
-            Console.ReadLine();
+            
         }
 
         private static void DrawFrame()
