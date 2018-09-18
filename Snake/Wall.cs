@@ -14,13 +14,13 @@ namespace Snake
             walls = new List<Figure>();
 
             //Верх
-            HorizontalLine upFrame = new HorizontalLine(1, 1, mapWidth, '+');
+            HorizontalLine upFrame = new HorizontalLine(1, 0, mapWidth - 1, '+');
             //Низ
-            HorizontalLine downFrame = new HorizontalLine(1, mapHeight - 1, mapWidth, '+');
-            //Лево
-            VerticalLine leftFrame = new VerticalLine(1, 1, mapHeight, '+');
-            //Право
-            VerticalLine rightFrame = new VerticalLine(mapWidth - 1, 1, mapHeight, '+');
+            HorizontalLine downFrame = new HorizontalLine(1, mapHeight - 1, mapWidth - 1, '+');
+            ////Лево
+            VerticalLine leftFrame = new VerticalLine(1, 0, mapHeight, '+');
+            ////Право
+            VerticalLine rightFrame = new VerticalLine(mapWidth - 1, 0, mapHeight - 1, '+');
 
             walls.Add(upFrame);
             walls.Add(downFrame);

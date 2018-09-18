@@ -88,5 +88,16 @@ namespace Snake
             else
                 return false;
         }
+
+        public bool isHitTale()
+        {
+            for (int i = 0; i < pList.Count / 2; i++ )
+            {
+                Point first = pList[i];
+                Point last = pList[pList.Count - i - 1];
+                if (first.isHit(last)) return true;
+            }
+            return false;
+        }
     }
 }

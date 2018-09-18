@@ -33,14 +33,20 @@ namespace Snake
             }
         }
 
+        public bool isHit(Point point)
+        {
+            foreach (Point item in pList)
+            {
+                if (item.isHit(point)) return true;
+            }
+            return false;
+        }
+
         public bool isHit(Figure figure)
         {
-            foreach (Point spoint in pList)
+            foreach (Point item in figure.pList)
             {
-                foreach (Point fpoint in figure.pList)
-                {
-                    if (spoint.isHit(fpoint)) return true;
-                }
+                if (isHit(item)) return true;
             }
             return false;
         }
