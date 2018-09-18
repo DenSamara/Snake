@@ -32,5 +32,17 @@ namespace Snake
                 item.Draw();
             }
         }
+
+        public bool isHit(Figure figure)
+        {
+            foreach (Point spoint in pList)
+            {
+                foreach (Point fpoint in figure.pList)
+                {
+                    if (spoint.isHit(fpoint)) return true;
+                }
+            }
+            return false;
+        }
     }
 }
